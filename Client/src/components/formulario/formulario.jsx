@@ -3,6 +3,7 @@ import './formulario.css';
 import { toast, Toaster } from 'react-hot-toast';
 
 const serverFront = 'https://app-formulario.onrender.com';
+// const serverFront = 'http://localhost:3001'
 
 export function Formulario() {
     const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ export function Formulario() {
         message: '',
     });
 
-    const [error, setError] = useState({});
+    const [errors, setError] = useState({});
 
     const handleChange = (e) => {
         setFormData({
@@ -22,7 +23,7 @@ export function Formulario() {
         });
 
         setError({
-            ...error,
+            ...errors,
             [e.target.name]: ''
         });
     };
@@ -79,10 +80,10 @@ export function Formulario() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Ingrese su nombre y apellido"
-                        className={error.name ? 'error' : ''}
+                        className={errors.name ? 'error' : ''}
                         required
                     />
-                    {error.name && <span className="error-text">{error.name}</span>}
+                    {errors.name && <span className="error-text">{errors.name}</span>}
 
                     <label htmlFor="email">Email *</label>
                     <input
@@ -92,10 +93,10 @@ export function Formulario() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Ingrese su correo electrónico"
-                        className={error.email ? 'error' : ''}
+                        className={errors.email ? 'error' : ''}
                         required
                     />
-                    {error.email && <span className="error-text">{error.email}</span>}
+                    {errors.email && <span className="error-text">{errors.email}</span>}
 
                     <label htmlFor="date">Fecha, Hora Exacta y Lugar de Nacimiento *</label>
                     <input
@@ -105,10 +106,10 @@ export function Formulario() {
                         value={formData.date}
                         onChange={handleChange}
                         placeholder="Ingrese fecha, hora y lugar de nacimiento"
-                        className={error.date ? 'error' : ''}
+                        className={errors.date ? 'error' : ''}
                         required
                     />
-                    {error.date && <span className="error-text">{error.date}</span>}
+                    {errors.date && <span className="error-text">{errors.date}</span>}
 
                     <label htmlFor="phone">Número de Teléfono *</label>
                     <input
@@ -118,10 +119,10 @@ export function Formulario() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="Ingrese su número de teléfono"
-                        className={error.phone ? 'error' : ''}
+                        className={errors.phone ? 'error' : ''}
                         required
                     />
-                    {error.phone && <span className="error-text">{error.phone}</span>}
+                    {errors.phone && <span className="error-text">{errors.phone}</span>}
 
                     <label htmlFor="message">Comentarios *</label>
                     <input
@@ -131,14 +132,13 @@ export function Formulario() {
                         onChange={handleChange}
                         placeholder="Escribe tus comentarios aquí"
                         rows="4"
-                        className={error.message ? 'error' : ''}
+                        className={errors.message ? 'error' : ''}
                         required
                     />
-                    {error.message && <span className="error-text">{error.message}</span>}
+                    {errors.message && <span className="error-text">{errors.message}</span>}
 
-                    
+                    <button type="submit" className="submit-button">Enviar</button>
                 </form>
-                <button type="submit" className="submit-button">Enviar</button>
                 <Toaster />
             </div>
         </div>

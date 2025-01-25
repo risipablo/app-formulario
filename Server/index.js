@@ -6,7 +6,6 @@ require('dotenv').config()
 
 const app = express()
 
-
 const corsOptions = {
     origin: ['http://localhost:5173', 'https://app-formulario.onrender.com', 'https://app-formulario-smoky.vercel.app'],
     methods: 'GET,POST,DELETE,PATCH',
@@ -24,19 +23,19 @@ app.use(bodyParser.json())
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD
+        user: process.env.EMAIL_USER, 
+        pass: process.env.EMAIL_PASS  
     }
 })
 
 app.post('/send-email', (req, res) => {
-    const {name,email,phone,reason,message,date} = req.body
+    const {name,email,phone,message,date} = req.body
 
     const mailOptions = {
         from: '',
         to: process.env.EMAIL_USER,
         subject: `Nuevo Mensaje de ${name}`,
-        text: `Nombre: ${name}\n Fecha de nacimiento: ${date}\n Email: ${email}\n Telefono: ${phone}\n Razon: ${reason}\n Mensaje: ${message}`,
+        text: `Nombre: ${name}\n Fecha de nacimiento: ${date}\n Email: ${email}\n Telefono: ${phone}\n Mensaje: ${message}`,
     }
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -48,7 +47,6 @@ app.post('/send-email', (req, res) => {
         res.status(200).send('Correo enviado con éxito.');
     });
 })
-
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
