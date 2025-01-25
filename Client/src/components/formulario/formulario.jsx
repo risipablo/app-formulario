@@ -136,8 +136,9 @@ export function Formulario() {
                     />
                     {error.message && <span className="error-text">{error.message}</span>}
 
-                    <button type="submit" className="submit-button">Enviar</button>
+                    
                 </form>
+                <button type="submit" className="submit-button">Enviar</button>
                 <Toaster />
             </div>
         </div>
