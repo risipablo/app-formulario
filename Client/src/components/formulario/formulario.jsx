@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './formulario.css';
 import { toast, Toaster } from 'react-hot-toast';
 
-const serverFront = 'http://localhost:3001';
+const serverFront = 'https://app-formulario.onrender.com';
 
 export function Formulario() {
     const [formData, setFormData] = useState({
