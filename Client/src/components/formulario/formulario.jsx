@@ -6,6 +6,8 @@ import {useNavigate } from 'react-router-dom';
 const serverFront = 'https://app-formulario.onrender.com';
 // const serverFront = 'http://localhost:3001'
 
+import image from "../../assets/portada.jpg"
+
 export function Formulario() {
     const [formData, setFormData] = useState({
         name: '',
@@ -86,8 +88,16 @@ export function Formulario() {
     return (
         <div className="container-formulario">
             <div className="form-container">
-                <h1>Formulario de Contacto</h1>
+                
+                <h1>Workshop</h1>
                 <form onSubmit={handleSubmit}>
+
+                    <div className="form-group">
+                        <p>Mapas del Alma: Astrología y Flores de Bach
+                        Un Viaje al Autoconocimiento</p>
+                        <img src={image} alt="" />
+                    </div>
+
                     <div className="form-group">
                         <label htmlFor="name">Nombre y Apellido *</label>
                         <input
