@@ -1,0 +1,41 @@
+.comprobante-container {
+    background-color: #f0f8ff;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 28px;
+    max-width: 800px;
+    margin: 6rem auto;
+    text-align: center;
+}
+
+@media (max-width: 768px){
+    .comprobante-container{
+        margin: 6rem 1rem;
+    }
+    .comprobante-container h2{
+        font-family: 1.2rem;
+    }
+}
+
+.comprobante-container h2 {
+    font-size: 2rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.comprobante-container p {
+    font-size: 1.2rem;
+    margin: 1rem auto ;
+    /* padding: 8px; */
+    color: #333;
+}
+
+.comprobante-container p span {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.consulta{
+    margin: 1.2rem auto;
+    font-weight: 600;
+}
